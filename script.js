@@ -1,14 +1,9 @@
-// Handle form submission
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+// Scroll to Top Functionality
+const scrollToTopBtn = document.getElementById('scrollToTop');
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    const feedback = `Thank you, ${name}! We have received your message.`;
-    document.getElementById('formFeedback').innerText = feedback;
-
-    // Clear form fields
-    this.reset();
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });

@@ -1,85 +1,85 @@
-/* General Styles */
+/* Reset and Basic Styling */
+body, ul {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-  }
-  
+  line-height: 1.6;
+}
+
+nav {
+  background: #333;
+  color: white;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Section Styling */
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#home {
+  background: #f4f4f4;
+}
+
+#about {
+  background: #ddd;
+}
+
+#services {
+  background: #bbb;
+}
+
+#contact {
+  background: #999;
+  color: white;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   nav ul {
-    list-style: none;
-    padding: 0;
+      flex-direction: column;
   }
-  
+
   nav ul li {
-    display: inline;
-    margin: 0 10px;
+      margin: 10px 0;
   }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  main {
-    padding: 1rem;
-  }
-  
-  .section {
-    margin: 2rem 0;
-    padding: 2rem;
-    background: #f4f4f4;
-    border-radius: 8px;
-  }
-  
-  /* Form Styling */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  form input, form textarea, form button {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  form button {
-    background: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  form button:hover {
-    background: #555;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #333;
-    color: #fff;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 600px) {
-    nav ul li {
-      display: block;
-      margin: 5px 0;
-    }
-  }
-  
+}
