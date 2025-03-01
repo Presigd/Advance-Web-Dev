@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Website</title>
+    <style>
+      /* Reset and Basic Styling */
+      body, ul {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        line-height: 1.6;
+      }
+
+      nav {
+        background: #333;
+        color: white;
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      /* Section Styling */
+      section {
+        padding: 50px 20px;
+        text-align: center;
+      }
+
+      #home {
+        background: #f4f4f4;
+      }
+
+      #about {
+        background: #ddd;
+      }
+
+      #services {
+        background: #bbb;
+      }
+
+      #contact {
+        background: #999;
+        color: white;
+      }
+
+      /* Button Styling */
+      button {
+        padding: 10px 20px;
+        background: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #555;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+        }
+
+        nav ul li {
+            margin: 10px 0;
+        }
+      }
+</style>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sections -->
+    <section id="home">
+        <h1>Welcome to My Single Page Website</h1>
+        <p>This is the home section of the website.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Learn more about our mission and vision.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We offer a variety of services to meet your needs.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Feel free to reach out for inquiries or collaborations.</p>
+        <button id="scrollToTop">Scroll to Top</button>
+    </section>
+
+    <script>
+      // Scroll to Top Functionality
+      const scrollToTopBtn = document.getElementById('scrollToTop');
+
+      scrollToTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+          });
+      });
+    </script>
+</body>
+</html>
