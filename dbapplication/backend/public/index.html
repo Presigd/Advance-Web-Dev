@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQLite Database Interaction</title>
+</head>
+<body>
+  <h1>SQLite Database Interaction</h1>
+  
+  <h2>Add User</h2>
+  <form id="addUserForm">
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country" required>
+    <label for="capital">Capital:</label>
+    <input type="text" id="capital" name="capital" required>
+    <button type="submit">Add User</button>
+  </form>
+
+  <h2>View Users</h2>
+  <button id="viewUsersBtn">View Users</button>
+  <ul id="userList"></ul>
+
+  <h2>Delete User</h2>
+  <form id="deleteUserForm">
+    <label for="userId">User ID:</label>
+    <input type="number" id="userId" name="userId" required>
+    <button type="submit">Delete User</button>
+  </form>
+
+  <script>
+    const serverUrl = 'http://localhost:3000';
+
+    // Add user
+    document.getElementById('addUserForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const country = document.getElementById('country').value;
+      const capital = document.getElementById('capital').value;
+      const response = await fetch(`${serverUrl}/addUser`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ country, capital })
+      });
+      if (response.ok) {
+        alert('User added successfully');
+      } else {
+        alert('Error adding user');
+      }
+    });
+
+    // View users
+    document.getElementById('viewUsersBtn').addEventListener('click', async () => {
+      const response = await fetch(`${serverUrl}/getUsers`);
+      const users = await response.json();
+      const userList = document.getElementById('userList');
+      userList.innerHTML = '';
+      users.forEach(user => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `ID: ${user.id}, Country: ${user.country}, Capital: ${user.capital}`;
+        userList.appendChild(listItem);
+      });
+    });
+
+    // Delete user
+    document.getElementById('deleteUserForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userId = document.getElementById('userId').value;
+      const response = await fetch(`${serverUrl}/deleteUser/${userId}`, {
+        method: 'DELETE'
+      });
+      if (response.ok) {
+        alert('User deleted successfully');
+      } else {
+        alert('Error deleting user');
+      }
+    });
+  </script>
+</body>
+</html>
